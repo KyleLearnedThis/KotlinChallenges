@@ -9,7 +9,7 @@ class HeightBalancedTree {
         } else sortedArrayToBST(nums, 0, nums.size - 1)
     }
 
-    fun sortedArrayToBST(nums: IntArray, low: Int, high: Int): TreeNode<Int>? {
+    private fun sortedArrayToBST(nums: IntArray, low: Int, high: Int): TreeNode<Int>? {
         if (low > high) {
             return null
         }
