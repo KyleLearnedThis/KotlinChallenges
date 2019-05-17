@@ -1,4 +1,4 @@
-package com.albion.labs.text
+package com.albion.labs.texts
 
 class LowerCase {
     fun toLowerCase(str: String): String {

@@ -1,4 +1,4 @@
-package com.albion.labs.text
+package com.albion.labs.texts
 
 import org.junit.Assert
 import org.junit.Test
