@@ -4,7 +4,7 @@ import com.albion.tree.bst.TreeNode
 
 class HeightBalancedTree {
     fun sortedArrayToBST(nums: IntArray): TreeNode<Int>? {
-        return if (nums.size == 0) {
+        return if (nums.isEmpty()) {
             null
         } else sortedArrayToBST(nums, 0, nums.size - 1)
     }
