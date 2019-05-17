@@ -12,8 +12,8 @@ class BinaryTreePathSum {
         }
 
         val list = ArrayList<Int>()
-        list.add(root!!.data)
-        dfs(root, sum - root!!.data, result, list)
+        list.add(root.data)
+        dfs(root, sum - root.data, result, list)
         return result
     }
 
@@ -29,14 +29,14 @@ class BinaryTreePathSum {
         //search path of left node
         if (left != null) {
             val leftList = ArrayList(list)
-            leftList.add(left!!.data)
-            dfs(left, sum - left!!.data, result, leftList)
+            leftList.add(left.data)
+            dfs(left, sum - left.data, result, leftList)
         }
 
         //search path of right node
         if (right != null) {
             val rightList = ArrayList(list)
-            rightList.add(right!!.data)
+            rightList.add(right.data)
             dfs(right, sum - t.right!!.data, result, rightList)
         }
     }

@@ -12,9 +12,7 @@ class BinaryTreeInversion {
         }
 
         private fun <T> inversionWork(node: TreeNode<T>?) {
-            val temp = node?.left
-            node?.left = node?.right
-            node?.right = temp
+            node?.left = node?.right.also { node?.right = node?.left }
 
             if(node?.left != null) {
                 inversionWork(node.left)

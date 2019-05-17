@@ -4,8 +4,11 @@ import com.albion.tree.bst.BinaryTreePrinter
 import com.albion.tree.bst.TreeNode
 import org.junit.Assert
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.Parameterized
 import java.util.*
 
+@RunWith(Parameterized::class)
 class BinaryTreePathSumTest {
 
     private fun makeTree(): TreeNode<Int> {
@@ -46,26 +49,19 @@ class BinaryTreePathSumTest {
     @Test
     fun testPathSumBasic() {
         val root = makeTree()
-        BinaryTreePrinter.printNode(root!!)
+        BinaryTreePrinter.printNode(root)
         val ps = BinaryTreePathSum()
         val sum = 22
         val actual = ps.pathSum(root, sum)
         val expected = ArrayList<ArrayList<Int>>()
-        val x1 = intArrayOf(5, 4, 11, 2).let { intList ->
-            ArrayList<Int>(intList.size).apply { intList.forEach { add(it) } }
-        }
-        val x2 = intArrayOf(5, 8, 4, 5).let { intList ->
-            ArrayList<Int>(intList.size).apply { intList.forEach { add(it) } }
-        }
-
-        expected.add(x1)
-        expected.add(x2)
+        expected.add(arrayListOf(5, 4, 11, 2))
+        expected.add(arrayListOf(5, 8, 4, 5))
 
         Assert.assertEquals(expected.size, actual.size)
         ps.printAllPaths(actual)
 
         for (i in expected.indices) {
-            val x = expected.get(i)
+            val x = expected[i]
             val y = actual[i]
             val result = x.containsAll(y) && y.containsAll(x)
             Assert.assertTrue(result)
