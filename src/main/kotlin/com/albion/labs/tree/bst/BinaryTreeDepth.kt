@@ -2,7 +2,7 @@ package com.albion.labs.tree.bst
 
 import com.albion.tree.bst.TreeNode
 
-class TreeDepth {
+class BinaryTreeDepth {
     fun minDepth(root: TreeNode<Int>?): Int {
         if (root == null) {
             return 0
