@@ -6,12 +6,12 @@ import com.albion.tree.bst.TreeNode
 import org.junit.Assert
 import org.junit.Test
 
-class TreeDepthTest {
+class BinaryTreeDepthTest {
 
     @Test
     fun minDepth() {
         val root = makeTree()
-        val td = TreeDepth()
+        val td = BinaryTreeDepth()
         val actual = td.minDepth(root)
         val expected = 3
         Assert.assertEquals(expected, actual)
@@ -20,7 +20,7 @@ class TreeDepthTest {
     @Test
     fun maxDepth() {
         val root = makeTree()
-        val td = TreeDepth()
+        val td = BinaryTreeDepth()
         val actual = td.maxDepth(root)
         val expected = 5
         Assert.assertEquals(expected, actual)
