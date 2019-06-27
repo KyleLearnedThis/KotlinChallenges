@@ -1,6 +1,6 @@
 package com.albion.labs.tree.bst
 
-import com.albion.tree.bst.TreeNode
+import com.albion.util.tree.bst.TreeNode
 import java.util.*
 
 class BinaryTreePathSum {
