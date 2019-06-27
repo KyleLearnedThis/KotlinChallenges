@@ -1,8 +1,8 @@
 package com.albion.labs.tree.bst
 
-import com.albion.tree.bst.BinarySearchTree
-import com.albion.tree.bst.BinaryTreePrinter
-import com.albion.tree.bst.TreeNode
+import com.albion.util.tree.bst.BinarySearchTree
+import com.albion.util.tree.bst.BinaryTreePrinter
+import com.albion.util.tree.bst.TreeNode
 import org.junit.Assert
 import org.junit.Test
 
