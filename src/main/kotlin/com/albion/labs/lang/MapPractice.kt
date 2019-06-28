@@ -1,7 +1,7 @@
 package com.albion.labs.lang
 
 class MapPractice {
-    fun makeFrequencyMap(n: Array<Int>): Map<Int, Int> {
+    fun makeFrequencyMap(n: Array<Int>): MutableMap<Int, Int> {
         val map = mutableMapOf<Int, Int>()
         for(i in n) {
             if(map.containsKey(i)) {
@@ -14,19 +14,17 @@ class MapPractice {
         return map
     }
 
-    fun printMap(map: Map<Int, Int>) {
+    fun printMap(map: MutableMap<Int, Int>) {
         for ((key, value) in map ){
             println("===== key: $key value: $value =====")
         }
     }
 
-    fun sortMapByValue(map: Map<Int, Int>): Map<Int, Int> {
-        val m =  map.toList().sortedBy { (key, value) -> value }.toMap()
-        return m
+    fun sortMapByValue(map: MutableMap<Int, Int>): MutableMap<Int, Int> {
+        return map.toList().sortedBy { (_, value) -> value }.toMap().toMutableMap()
     }
 
-    fun sortMapByKey(map: Map<Int, Int>): Map<Int, Int> {
-        val m =  map.toList().sortedBy { (key, value) -> key }.toMap()
-        return m
+    fun sortMapByKey(map: MutableMap<Int, Int>): MutableMap<Int, Int> {
+        return map.toList().sortedBy { (key, _) -> key }.toMap().toMutableMap()
     }
 }
