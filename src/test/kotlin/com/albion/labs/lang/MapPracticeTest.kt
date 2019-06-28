@@ -26,4 +26,14 @@ class MapPracticeTest {
         map = m.sortMapByKey(map)
         m.printMap(map)
     }
+
+    @Test
+    fun testContent() {
+        val m = MapPractice()
+        var map = m.makeFrequencyMap(arrayOf(5,1,1,1,1,1,2,2,2,2,3,3,3,4,4))
+        val keys = map.keys.sorted()
+        for (key in keys) {
+           println("===== key: $key =====")
+        }
+    }
 }
