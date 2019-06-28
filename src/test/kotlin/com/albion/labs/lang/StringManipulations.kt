@@ -18,12 +18,8 @@ class StringManipulations {
 
         fun splitIntoArrays(input: String, deliminator: String): MutableList<Int> {
             val x = input.split(deliminator)
-            val list = mutableListOf<Int>()
-            for(i in x) {
-                val n = i.toInt()
-                list.add(n)
-            }
-            return list
+            val y = x.toMutableList()
+            return y.map {it.toInt()}.toMutableList()
         }
     }
 }
