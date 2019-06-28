@@ -15,5 +15,15 @@ class StringManipulations {
             val substring = input.substringAfter("S").substringBefore("r")
             println("===== substringV1: $substring =====")
         }
+
+        fun splitIntoArrays(input: String, deliminator: String): MutableList<Int> {
+            val x = input.split(deliminator)
+            val list = mutableListOf<Int>()
+            for(i in x) {
+                val n = i.toInt()
+                list.add(n)
+            }
+            return list
+        }
     }
 }
