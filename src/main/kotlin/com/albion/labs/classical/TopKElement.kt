@@ -9,7 +9,7 @@ class TopKElement {
         for (i in nums.indices) {
             val key = nums[i]
             if (freq.containsKey(key)) {
-                var value = freq[key]!!.plus(1)
+                val value = freq[key]!!.plus(1)
                 freq[key] = value
             } else {
                 freq[key] = 1
@@ -18,6 +18,6 @@ class TopKElement {
 
         val list = ArrayList<Map.Entry<Int, Int>>(freq.entries)
         list.sortWith(Comparator { o1, o2 -> o2.value - o1.value })
-        return list[k - 1]!!.key
+        return list[k - 1].key
     }
 }
