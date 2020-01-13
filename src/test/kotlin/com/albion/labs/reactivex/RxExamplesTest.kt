@@ -5,22 +5,27 @@ import org.junit.Test
 class RxExamplesTest {
 
     @Test
-    fun testExample0001() {
+    fun testBasic01() {
+        RxExamples.testBasic()
+    }
+
+    @Test
+    fun testFlatmap01() {
         RxExamples.testFlatmap()
     }
 
     @Test
-    fun testExample0002() {
+    fun testZip01() {
         RxExamples.testZip()
     }
 
     @Test
-    fun testExample0003() {
+    fun testCombineLastInterval01() {
         RxExamples.testCombineLastInterval()
     }
 
     @Test
-    fun testExample0004() {
+    fun testReduce01() {
         RxExamples.testReduce()
     }
 }

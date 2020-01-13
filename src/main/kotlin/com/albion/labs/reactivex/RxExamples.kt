@@ -8,6 +8,13 @@ import java.util.concurrent.TimeUnit
 
 class RxExamples {
     companion object {
+        fun testBasic() {
+            val array = arrayOf(1,10,100,1000,10000)
+            Observable.just(array.asList())
+                    .flatMap { list -> Observable.fromIterable(list) }
+                    .subscribe({println("[$it]")}, { println("Rx: onError") }, { println("Rx: onComplete") })
+        }
+
         fun testFlatmap() {
             Observable.just("1/10/100/Alpha", "2/Beta", "3/30/Gamma")
                     .apply {
