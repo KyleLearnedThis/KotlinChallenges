@@ -8,11 +8,19 @@ import java.util.concurrent.TimeUnit
 
 class RxExamples {
     companion object {
-        fun testBasic() {
+        fun testBasicList() {
             val array = arrayOf(1,10,100,1000,10000)
             Observable.just(array.asList())
                     .flatMap { list -> Observable.fromIterable(list) }
-                    .subscribe({println("[$it]")}, { println("Rx: onError") }, { println("Rx: onComplete") })
+                    .subscribe({ println("[$it]") }, { error: Throwable -> error.printStackTrace() })
+                    { println("testBasicList: onComplete") }
+        }
+
+        fun testBasicArray() {
+            val array = arrayOf(1,10,100,1000,10000)
+            val observable = Observable.fromArray<Int>(*array)
+            observable.subscribe({ println("[$it]") }, { error: Throwable -> error.printStackTrace() }
+            ) { println("testBasicArray: Done") }
         }
 
         fun testFlatmap() {

@@ -5,8 +5,13 @@ import org.junit.Test
 class RxExamplesTest {
 
     @Test
-    fun testBasic01() {
-        RxExamples.testBasic()
+    fun testBasicList() {
+        RxExamples.testBasicList()
+    }
+
+    @Test
+    fun testBasicArray() {
+        RxExamples.testBasicArray()
     }
 
     @Test
