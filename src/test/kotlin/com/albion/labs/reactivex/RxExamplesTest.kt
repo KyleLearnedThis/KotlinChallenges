@@ -6,17 +6,29 @@ class RxExamplesTest {
 
     @Test
     fun testBasicList() {
-        RxExamples.testBasicList()
+        val array = arrayOf(1,10,100,1000,10000)
+        RxExamples.testBasicList(array)
     }
 
     @Test
     fun testBasicArray() {
-        RxExamples.testBasicArray()
+        val array = arrayOf(1,10,100,1000,10000)
+        RxExamples.testBasicArray01(array)
+    }
+
+    @Test
+    fun testBasicArrayV2() {
+        RxExamples.testBasicArray02()
     }
 
     @Test
     fun testFlatmap01() {
-        RxExamples.testFlatmap()
+        RxExamples.testFlatmap01()
+    }
+
+    @Test
+    fun testFlatmap02() {
+        RxExamples.testFlatmap02()
     }
 
     @Test

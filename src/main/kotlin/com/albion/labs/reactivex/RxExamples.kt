@@ -8,22 +8,29 @@ import java.util.concurrent.TimeUnit
 
 class RxExamples {
     companion object {
-        fun testBasicList() {
-            val array = arrayOf(1,10,100,1000,10000)
+        fun testBasicList(array: Array<Int>) {
             Observable.just(array.asList())
                     .flatMap { list -> Observable.fromIterable(list) }
                     .subscribe({ println("[$it]") }, { error: Throwable -> error.printStackTrace() })
                     { println("testBasicList: onComplete") }
         }
 
-        fun testBasicArray() {
-            val array = arrayOf(1,10,100,1000,10000)
+        fun testBasicArray01(array: Array<Int>) {
             val observable = Observable.fromArray<Int>(*array)
             observable.subscribe({ println("[$it]") }, { error: Throwable -> error.printStackTrace() }
             ) { println("testBasicArray: Done") }
         }
 
-        fun testFlatmap() {
+        fun testBasicArray02() {
+            val array = arrayOf(5,2,3,6,1,4)
+            val observable = Observable.fromArray<Int>(*array)
+            observable.sorted()
+                    .subscribe({ item: Int -> println("[$item]") }, { error: Throwable -> error.printStackTrace() }) {
+                println("onComplete")
+            }
+        }
+
+        fun testFlatmap01() {
             Observable.just("1/10/100/Alpha", "2/Beta", "3/30/Gamma")
                     .apply {
                         flatMap { s -> Observable.fromArray(*s.split("/".toRegex()).toTypedArray()) }
@@ -33,6 +40,15 @@ class RxExamples {
             }
         }
 
+        fun testFlatmap02() {
+            val array = arrayOf("1/2/3/Alpha", "4/Beta", "5/6/Gamma")
+            val source = Observable.fromArray(*array)
+            source.flatMap { s -> Observable.fromArray(*s.split("/".toRegex()).toTypedArray()) }
+                    .filter { s -> s.matches("[0-9]+".toRegex()) }
+                    .map { return@map it.toInt() * it.toInt() }
+                    .subscribe { println("== [$it] ==") }
+        }
+
         fun testZip() {
             val src1 = Observable.just("JFK", "SFO", "CDG", "YVR")
             val src2 = Observable.just("John Kennedy", "San Francisco", "Charles de Gaulle", "Vancouver")
@@ -40,7 +56,7 @@ class RxExamples {
                     .toMap()
                     .toObservable()
             src3.subscribe{
-                it.forEach { println("[${it.key}]-[${it.value}]") }
+                it.forEach { it -> println("[${it.key}]-[${it.value}]") }
             }
         }
 
