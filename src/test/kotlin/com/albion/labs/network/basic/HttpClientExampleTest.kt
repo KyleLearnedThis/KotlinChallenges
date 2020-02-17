@@ -1,4 +1,4 @@
-package com.albion.labs.lang.network
+package com.albion.labs.network.basic
 
 import org.junit.Assert
 import org.junit.Test

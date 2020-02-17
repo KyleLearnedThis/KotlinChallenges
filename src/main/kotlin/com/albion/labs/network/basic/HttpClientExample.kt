@@ -1,6 +1,6 @@
-package com.albion.labs.lang.network
+package com.albion.labs.network.basic
 
-import com.albion.labs.lang.network.data.ChuckNorrisJoke
+import com.albion.labs.network.data.ChuckNorrisJoke
 import com.google.gson.Gson
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
