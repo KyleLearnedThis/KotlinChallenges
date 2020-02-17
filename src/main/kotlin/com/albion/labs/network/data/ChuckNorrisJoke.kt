@@ -1,6 +1,14 @@
-package com.albion.labs.lang.network.data
+package com.albion.labs.network.data
 
-data class ChuckNorrisJoke(var categories: Array<String>, val created_at: String, val icon_url: String, val id: String,val updated_at: String, val url: String, val value: String)
+data class ChuckNorrisJoke(
+        val categories: Array<String>,
+        val created_at: String,
+        val icon_url: String,
+        val id: String,
+        val updated_at: String,
+        val url: String,
+        val value: String
+)
 
 /*
 {
