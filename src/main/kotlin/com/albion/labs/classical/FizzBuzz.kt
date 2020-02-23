@@ -21,4 +21,20 @@ class FizzBuzz {
         }
         return list
     }
+
+    fun fizzBuzzV2(n: Int): List<String> {
+        val list = (1..n).toList()
+        val words = arrayOf("Fizz", "Buzz", "FizzBuzz")
+        return list.map {
+            if(it % 3 == 0 && it % 5 == 0) {
+                words[2]
+            } else if (it % 3 == 0) {
+                words[0]
+            } else if (it % 5 == 0){
+                words[1]
+            } else {
+                it.toString()
+            }
+        }
+    }
 }
