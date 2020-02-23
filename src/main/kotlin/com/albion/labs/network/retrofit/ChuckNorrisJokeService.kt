@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface ChuckNorrisJokeService {
+
     @GET("/jokes/random")
     fun getRandomJoke(): Call<ChuckNorrisJoke>
 
@@ -16,8 +17,7 @@ interface ChuckNorrisJokeService {
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl("https://api.chucknorris.io/")
                     .build()
-
-            return retrofit.create(ChuckNorrisJokeService::class.java);
+            return retrofit.create(ChuckNorrisJokeService::class.java)
         }
     }
 }
