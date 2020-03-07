@@ -16,7 +16,7 @@ class AirportRoutes(private val shortTrips: Array<Array<String>> ){
         list.add(startingPoint)
 
         var here = startingPoint
-        for(i in 0 until routeMap.size) {
+        routeMap.forEach { _ ->
             val next = routeMap[here] ?: ""
             if(next.isNotEmpty()){
                 list.add(next)
