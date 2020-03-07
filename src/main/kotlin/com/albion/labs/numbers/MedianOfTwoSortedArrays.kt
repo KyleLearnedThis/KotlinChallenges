@@ -5,8 +5,8 @@ class MedianOfTwoSortedArrays {
     companion object {
         fun findMedianSortedArrays(nums1: IntArray, nums2: IntArray): Double {
             val m = nums1.size
-            var n = nums2.size
-            var A = Array(m+n) { 0 }
+            val n = nums2.size
+            val A = Array(m+n) { 0 }
 
             var i = m - 1
             var j = n - 1

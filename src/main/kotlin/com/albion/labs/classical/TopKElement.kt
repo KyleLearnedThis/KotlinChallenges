@@ -3,11 +3,11 @@ package com.albion.labs.classical
 import java.util.*
 
 class TopKElement {
-    fun topKElement(nums: IntArray, k: Int): Int {
+    fun topKElement(numbers: IntArray, k: Int): Int {
         val freq = HashMap<Int, Int>(0)
 
-        for (i in nums.indices) {
-            val key = nums[i]
+        for (i in numbers.indices) {
+            val key = numbers[i]
             if (freq.containsKey(key)) {
                 val value = freq[key]!!.plus(1)
                 freq[key] = value
