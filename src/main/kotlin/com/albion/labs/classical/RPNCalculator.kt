@@ -4,7 +4,7 @@ class RPNCalculator {
     companion object {
         fun evaluate(input: Array<String>): Int {
             val operators = mutableListOf("+", "-", "*", "/")
-            var stack = mutableListOf<Int>()
+            val stack = mutableListOf<Int>()
 
             for(token in input) {
                 if(!operators.contains(token)) {
