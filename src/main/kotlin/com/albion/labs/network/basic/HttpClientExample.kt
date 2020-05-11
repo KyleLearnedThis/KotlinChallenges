@@ -4,19 +4,22 @@ import com.albion.labs.network.data.ChuckNorrisJoke
 import com.google.gson.Gson
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
-import java.net.URI
-import java.net.http.HttpClient
-import java.net.http.HttpRequest
-import java.net.http.HttpResponse
+import okhttp3.Call
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+
 
 class HttpClientExample {
     fun httpGet(urlString: String): String {
-        val client = HttpClient.newBuilder().build()
-        val request = HttpRequest.newBuilder()
-                .uri(URI(urlString))
+        val client = OkHttpClient()
+        val request: Request = Request.Builder()
+                .url(urlString)
                 .build()
-        val response = client.send(request, HttpResponse.BodyHandlers.ofString())
-        return response.body().toString()
+        val call: Call = client.newCall(request)
+        val response: Response = call.execute()
+        val body = response.body!!
+        return body.string()
     }
 
     fun rxHttpGet(urlString: String) {
