@@ -16,7 +16,7 @@ class BSTRangeSumTest {
         }
         val root = tree.root!!
         BinaryTreePrinter.printNode(root)
-        val actual = BSTRangeSum.rangeSum(root, 7, 15)
+        val actual = BSTRangeSum.rangeSumBST(root, 7, 15)
         val expected = 32
         Assert.assertEquals(expected, actual)
     }
