@@ -2,7 +2,7 @@ package com.albion.labs.numbers
 
 import java.lang.StringBuilder
 
-// This reverse a string but preserves all sepcial character in its own original index position.
+// This reverse a string but preserves all special character in its own original index position.
 class ReverseNonSpecialChar {
     companion object {
         fun reverseNonSpecialCharacter(input: String): String {
