@@ -5,18 +5,16 @@ class HourglassSum {
     companion object {
         fun hourglassSum(arr: Array<Array<Int>>): Int {
             val m = Array(4) { Array<Int>(4) { 0 } }
-            for(h in 1..4) {
-                for(v in 1..4) {
-                    m[h-1][v-1] = getHourglassSum(arr,h,v)
+            for (h in 1..4) {
+                for (v in 1..4) {
+                    m[h - 1][v - 1] = getHourglassSum(arr, h, v)
                 }
             }
-
-            val max = findMaxSum(m)
-            return max
+            return findMaxSum(m)
         }
 
-        fun getHourglassSum(arr: Array<Array<Int>>, row: Int, column: Int): Int {
-            var sum = 0
+        private fun getHourglassSum(arr: Array<Array<Int>>, row: Int, column: Int): Int {
+            val sum: Int
             val r1 = arr[row-1][column-1]
             val r2 = arr[row-1][column]
             val r3 = arr[row-1][column+1]
@@ -28,7 +26,7 @@ class HourglassSum {
             return sum
         }
 
-        fun findMaxSum(arr: Array<Array<Int>>): Int {
+        private fun findMaxSum(arr: Array<Array<Int>>): Int {
             var max = Int.MIN_VALUE
             for(x in arr.indices) {
                 for(y in arr[x].indices) {
@@ -39,16 +37,6 @@ class HourglassSum {
                 }
             }
             return max
-        }
-
-        fun printMatrix(arr: Array<Array<Int>>) {
-            for(x in arr.indices) {
-                for(y in arr[x].indices) {
-                    val value = arr[x][y]
-                    print("[$x][$y] --> $value  ")
-                }
-                println()
-            }
         }
     }
 }
