@@ -26,21 +26,11 @@ class RPNCalculator {
 
         private fun computeExpression(val1: Int, val2: Int, operator: String): Int {
             return when (operator) {
-                "+" -> {
-                    val1 + val2
-                }
-                "-" -> {
-                    val1 - val2
-                }
-                "*" -> {
-                    val1 * val2
-                }
-                "/" -> {
-                    val1 / val2
-                }
-                else -> {
-                    throw RuntimeException("Invalid Operator: $operator")
-                }
+                "+" -> {val1 + val2}
+                "-" -> {val1 - val2}
+                "*" -> {val1 * val2}
+                "/" -> {val1 / val2}
+                else -> {throw RuntimeException("Invalid Operator: $operator")}
             }
         }
     }
