@@ -56,7 +56,7 @@ class RxExamples {
                     .toMap()
                     .toObservable()
             src3.subscribe{
-                it.forEach { it -> println("[${it.key}]-[${it.value}]") }
+                it.forEach { println("[${it.key}]-[${it.value}]") }
             }
         }
 
@@ -71,8 +71,8 @@ class RxExamples {
 
         fun testReduce() {
             val src = Observable.just(1, 10, 100, 1000, 10000, 100000)
-            src.reduce(0, { l,r  -> l+r })
-                    .toObservable()
+            src.reduce(0) { l, r -> l + r }
+                .toObservable()
                     .subscribe{ println("===== $it =====") }
         }
     }
