@@ -13,5 +13,14 @@ class EvenNumberDigits {
             }
             return result
         }
+
+        fun findNumbersV2(nums: IntArray): Int {
+            return nums.map { it.toString().toCharArray() }
+                .filter { it.count() % 2 == 0 }
+                .map { 1 }
+                .fold(0) { sum, value ->
+                    sum + value
+                }
+        }
     }
 }
