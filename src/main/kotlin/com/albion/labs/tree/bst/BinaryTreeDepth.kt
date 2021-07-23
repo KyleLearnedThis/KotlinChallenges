@@ -1,6 +1,7 @@
 package com.albion.labs.tree.bst
 
 import com.albion.util.tree.bst.TreeNode
+import kotlin.math.max
 
 class BinaryTreeDepth {
     fun minDepth(root: TreeNode<Int>?): Int {
@@ -25,6 +26,14 @@ class BinaryTreeDepth {
         }
         val left = root.left
         val right = root.right
-        return Math.max(maxDepth(left), maxDepth(right)) + 1
+        return max(maxDepth(left), maxDepth(right)) + 1
+    }
+
+    fun maxDepthV2(root: TreeNode<Int>?): Int {
+        return if (root == null) {
+            0
+        } else {
+            1 + max(maxDepth(root.left), maxDepth(root.right))
+        }
     }
 }
