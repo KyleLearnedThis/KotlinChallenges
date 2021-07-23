@@ -20,25 +20,10 @@ class RansomNotes {
             return true
         }
 
-        // For Hackerrank execution
-        fun printConfirmation(magazine: Array<String>, note: Array<String>) {
-            val result = checkMagazineWork(magazine, note)
-            if (result) {
-                println("Yes")
-            } else {
-                println("No")
-            }
-        }
-
         private fun generateFrequency(magazine: Array<String>): MutableMap<String, Int> {
             val freq = mutableMapOf<String, Int>()
             for (word in magazine) {
-                if (freq.keys.contains(word)) {
-                    var value = freq[word]!!
-                    freq[word] = value + 1
-                } else {
-                    freq[word] = 1
-                }
+                freq[word] = freq.getOrDefault(word, 0) + 1
             }
             return freq
         }
