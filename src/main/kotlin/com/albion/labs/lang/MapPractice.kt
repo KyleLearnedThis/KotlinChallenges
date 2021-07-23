@@ -3,13 +3,8 @@ package com.albion.labs.lang
 class MapPractice {
     fun makeFrequencyMap(n: Array<Int>): MutableMap<Int, Int> {
         val map = mutableMapOf<Int, Int>()
-        for(i in n) {
-            if(map.containsKey(i)) {
-                val value = map[i]!!.plus(1)
-                map[i] = value
-            } else {
-                map[i] = 1
-            }
+        n.forEach {
+            map[it] = map.getOrDefault(it, 0) + 1
         }
         return map
     }

@@ -19,13 +19,8 @@ class UncommonWords {
     private fun makeFrequencyMap(input: String): MutableMap<String, Int> {
         val words = input.split(" ")
         val map = mutableMapOf<String, Int>()
-        for(word in words) {
-            if(map.containsKey(word)) {
-                val value = map[word]!!.plus(1)
-                map[word] = value
-            } else {
-                map[word] = 1
-            }
+        words.forEach{
+            map[it] = map.getOrDefault(it, 0) + 1
         }
         return map
     }
