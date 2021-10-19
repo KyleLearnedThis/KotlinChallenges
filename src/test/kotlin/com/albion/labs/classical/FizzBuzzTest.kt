@@ -21,4 +21,12 @@ class FizzBuzzTest {
         val expected = mutableListOf("1", "2", "Fizz", "4", "Buzz")
         Assert.assertArrayEquals(actual.toTypedArray(), expected.toTypedArray())
     }
+
+    @Test
+    fun testFizzBuzzV3() {
+        val fizzBuzz = FizzBuzz()
+        val actual = fizzBuzz.fizzBuzzV3(5)
+        val expected = mutableListOf("1", "2", "Fizz", "4", "Buzz")
+        Assert.assertArrayEquals(actual.toTypedArray(), expected.toTypedArray())
+    }
 }
