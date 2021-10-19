@@ -37,4 +37,11 @@ class FizzBuzz {
             }
         }
     }
+
+    fun fizzBuzzV3(n: Int): List<String> {
+        return IntArray(n) { i -> i + 1 }
+            .map { i ->
+                mapOf(0 to i, i % 3 to "Fizz", i % 5 to "Buzz", i % 15 to "FizzBuzz")[0]
+            }.map { it.toString() }
+    }
 }

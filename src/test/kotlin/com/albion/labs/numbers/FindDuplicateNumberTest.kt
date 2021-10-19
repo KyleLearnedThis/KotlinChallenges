@@ -12,4 +12,12 @@ class FindDuplicateNumberTest {
         val actual = FindDuplicateNumber.findDuplicate(input)
         assertEquals(expected,actual)
     }
+
+    @Test
+    fun testFindDupilcateInSortedArray() {
+        val nums = intArrayOf(1,2,2,4)
+        val expected = intArrayOf(2,3)
+        val actual = FindDuplicateNumber.findErrorNums(nums)
+        assertArrayEquals(expected, actual)
+    }
 }
