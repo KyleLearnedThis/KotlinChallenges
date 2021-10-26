@@ -4,12 +4,10 @@ import java.util.*
 
 class Fibonacci {
     fun v1(n: Int): Int {
-        return if (n == 0) {
-            0
-        } else if (n == 1) {
-            1
-        } else {
-            v1(n - 1) + v1(n - 2)
+        return when (n) {
+            0 -> { 0 }
+            1 -> { 1 }
+            else -> { v1(n - 1) + v1(n - 2) }
         }
     }
 
@@ -18,9 +16,7 @@ class Fibonacci {
         map[0] = 0
         map[1] = 1
 
-        if (n == 0 || n == 1) {
-            return map[n]!!
-        } else {
+        if (n >= 2) {
             for (i in 2..n) {
                 if (!map.containsKey(n)) {
                     val x = map[i - 1]!! + map[i - 2]!!

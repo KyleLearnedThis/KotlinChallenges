@@ -4,11 +4,11 @@ package com.albion.labs.graphs
 class DestinationCity {
     companion object {
         fun destCity(paths: List<List<String>>): String {
-            var routes = mutableMapOf<String, String>()
+            val routes = mutableMapOf<String, String>()
             for (path in paths) {
                 if (path.count() >= 2) {
-                    val first = path.first()!!
-                    val last = path.last()!!
+                    val first = path.first()
+                    val last = path.last()
                     routes[first] = last
                 }
             }
