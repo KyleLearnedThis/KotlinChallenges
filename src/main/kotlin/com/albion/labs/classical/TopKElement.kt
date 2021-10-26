@@ -10,11 +10,6 @@ class TopKElement {
         return list[k - 1].key
     }
 
-    private fun makeFrequencyMap(n: IntArray): MutableMap<Int, Int> {
-        val map = mutableMapOf<Int, Int>()
-        n.forEach {
-            map[it] = map.getOrDefault(it, 0) + 1
-        }
-        return map
-    }
+    private fun makeFrequencyMap(n: IntArray): MutableMap<Int, Int> =
+       n.toList().groupingBy { it }.eachCount().toMutableMap()
 }

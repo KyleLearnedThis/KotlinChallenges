@@ -1,33 +1,18 @@
 package com.albion.labs.texts
 
-import java.util.ArrayList
 
 class MostCommonWord {
     companion object {
+        // Updated with better solution from ProAndroidDev
         fun mostCommonWord(paragraph: String, banned: Array<String>): String {
-            val map = emptyMap<String, Int>().toMutableMap()
-            val phrases = paragraph.split("\\W+".toRegex()).filter { it != "" }
-
-            for (word in phrases) {
-                val lowerCasedWord = word.toLowerCase()
-                if (banned.contains(lowerCasedWord)) {
-                    continue
-                }
-                if (map.containsKey(lowerCasedWord)) {
-                    val value = map[lowerCasedWord]!!
-                    map[lowerCasedWord] = value + 1
-                } else {
-                    map[lowerCasedWord] = 1
-                }
-            }
-            val list = ArrayList<Map.Entry<String, Int>>(map.entries)
-            list.sortWith(Comparator { o1, o2 -> o2.value - o1.value })
-
-            return if (list.size >= 1) {
-                list[0].key
-            } else {
-                ""
-            }
+            // 1. Covert string to lower case and split by words.
+            val words = paragraph.toLowerCase().split("\\W+|\\s+".toRegex())
+            // 2. Create a set of banned words.
+            val bannedSet = banned.toHashSet()
+            // 3. Create a map of words to their occurrence, excluding the banned words
+            val wordToCount = words.filterNot { it in bannedSet }.groupingBy { it }.eachCount()
+            // 4. Return word with the highest number of occurrences from the map.
+            return wordToCount.maxBy { it.value }!!.key
         }
     }
 }

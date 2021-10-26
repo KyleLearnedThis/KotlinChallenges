@@ -5,9 +5,9 @@ class AirportRoutes(private val shortTrips: Array<Array<String>> ){
 
     fun makeRoutes() : MutableList<String> {
         for(trip in shortTrips) {
-            if( trip.size == 2) {
-                val from = trip[0]
-                val to = trip[1]
+            if( trip.size >= 2) {
+                val from = trip.first()
+                val to = trip.last()
                 routeMap[from] = to
             }
         }
@@ -17,7 +17,7 @@ class AirportRoutes(private val shortTrips: Array<Array<String>> ){
 
         var here = startingPoint
         routeMap.forEach { _ ->
-            val next = routeMap[here] ?: ""
+            val next = routeMap.getOrDefault(here, "")
             if(next.isNotEmpty()){
                 list.add(next)
                 here = next
