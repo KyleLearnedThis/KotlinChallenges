@@ -10,13 +10,13 @@ class ReverseOnlyLetters {
             val array = S.toCharArray()
             val letters = Stack<Char>()
             for (c in array) {
-                if (Character.isLetter(c)) {
+                if (c.isLetter()) {
                     letters.push(c)
                 }
             }
             val ans = StringBuilder()
             for (c in array) {
-                if (Character.isLetter(c)) {
+                if (c.isLetter()) {
                     ans.append(letters.pop())
                 } else {
                     ans.append(c)
