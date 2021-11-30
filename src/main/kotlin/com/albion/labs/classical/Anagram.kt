@@ -6,9 +6,8 @@ class Anagram {
             makeFrequencyDictionary(first) == makeFrequencyDictionary(second)
         private fun makeFrequencyDictionary(input: String): MutableMap<Char, Int> {
             val result = mutableMapOf<Char, Int>()
-            input.toCharArray().forEach {
-                result[it] = result.getOrDefault(it, 0) + 1
-            }
+            input.toCharArray()
+                .forEach { result[it] = result.getOrDefault(it, 0) + 1 }
             return result
         }
     }
