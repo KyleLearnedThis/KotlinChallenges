@@ -8,4 +8,11 @@ class LowerCase {
         }
         return String(charArray)
     }
+
+    fun toLowerCaseV2(str: String): String {
+        return str.toCharArray()
+            .map { it.toLowerCase() }
+            .toCharArray()
+            .joinToString("")
+    }
 }
