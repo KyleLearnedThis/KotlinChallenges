@@ -1,9 +1,10 @@
 package com.albion.labs.collections.list
 
-abstract class BaseList<T>(input: Array<T>) {
+abstract class BaseList<T> {
     var head: ListNode<T>? = null
     var tail: ListNode<T>? = null
-    init {
+    constructor()
+    constructor(input: Array<T>) {
         input.forEach {
             append(it)
         }
