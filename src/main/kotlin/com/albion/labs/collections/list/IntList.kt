@@ -1,7 +1,10 @@
 package com.albion.labs.collections.list
 
 
-class IntList(input: Array<Int>): BaseList<Int>(input) {
+class IntList: BaseList<Int> {
+    constructor()
+    constructor(input: Array<Int>) : super(input)
+
     fun print() {
         var cur = head
         while(cur != null) {
